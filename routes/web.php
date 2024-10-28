@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TrainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [PageController::class, 'home'])->name('home');
+// Route::get('/', [PageController::class, 'home'])->name('home');
+
 Route::get('/about', [PageController::class, 'about'])->name('about');
+
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+
+Route::get('/', [TrainController::class, 'index'])->name('home');
