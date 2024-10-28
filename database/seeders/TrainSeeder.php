@@ -16,7 +16,7 @@ class TrainSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        foreach range(1, 20) as $index {
+        foreach (range(1, 20) as $index) {
             $trains[] = [
                 'azienda' => $faker->company,
                 'stazione_partenza' => $faker->city,
@@ -24,9 +24,9 @@ class TrainSeeder extends Seeder
                 'orario_partenza' => $faker->dateTimeBetween('+1 days', '+2 days'),
                 'orario_arrivo' => $faker->dateTimeBetween('now', '+1 days'),
                 'codice_treno' => $faker->bothify('??###'),
-                'numero_carrozze' => $faker->numberBetween(15, 5),
+                'numero_carrozze' => $faker->numberBetween(5, 15),
                 'in_orario' => $faker->boolean(80),
-                'cancellato' => $faker->boolean(10, true),
+                'cancellato' => $faker->boolean(10),
             ];
 
         }
