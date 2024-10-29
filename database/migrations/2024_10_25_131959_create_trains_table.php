@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('stazione_partenza');
             $table->string('stazione_arrivo');
             $table->dateTime('orario_partenza');
-            $table->dataTime('orario_arrivo');
+            $table->dateTime('orario_arrivo');
             $table->string('codice_treno')->unique();
             $table->integer('numero_carrozze');
             $table->boolean('in_orario')->default(true);

@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Train;
 use App\Models\Passenger;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
@@ -14,11 +14,20 @@ class PassengerSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        foreach (range(1, 10) as $index) {
+
+        $trains = Train::all();
+
+        if ($trains->isEmpty()) {
+            return;
+        }
+
+        foreach (range(1, 20) as $index) {
             Passenger::create([
-                'name' => $faker->name,
+                'nome' => $faker->firstName,
+                'cognome' => $faker->lastName,
                 'email' => $faker->unique()->safeEmail,
-                'phone' => $faker->phoneNumber,
+                'eta' => $faker->numberBetween(18, 80),
+                'train_id' => $faker->randomElement($trains)->id,
             ]);
         }
     }

@@ -14,5 +14,11 @@ class Passenger extends Model
         'email',
         'phone',
         'document_number',
+        'train_id',
     ];
+
+    public function train()
+    {
+        return $this->belongsTo(Train::class);
+    }
 }

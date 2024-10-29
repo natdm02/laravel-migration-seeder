@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Train;
+use App\Models\Passenger;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,9 @@ class TrainController extends Controller
 
                 // dd($trains);
 
-        return view('pages.home', compact('trains'));
+        $passengers = Passenger::all();
+
+        return view('pages.home', compact('trains','passengers'));
     }
 
 }
